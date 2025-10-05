@@ -23,4 +23,6 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
     void deleteByTableNumber(int tableNumber);
 
 
+
+
 }

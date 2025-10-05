@@ -4,9 +4,11 @@ import com.example.CanteenCollegeApp.dto.request.PasswordUpdateRequest;
 import com.example.CanteenCollegeApp.dto.request.StudentRequest;
 import com.example.CanteenCollegeApp.model.Order;
 import com.example.CanteenCollegeApp.Service.StudentService;
+import com.example.CanteenCollegeApp.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -15,6 +17,8 @@ public class StudentController {
 
     @Autowired
     StudentService studentService;
+
+
 
     @PostMapping("/add")
     public String addNewStudent(@RequestBody StudentRequest studentRequest){
@@ -45,6 +49,8 @@ public class StudentController {
     public Map<String, Object> getBalancebyUsn(@PathVariable String usn){
         return studentService.getBalanceResponseByUsn(usn);
     }
+
+
 
     @PutMapping("/updateBalance/{usn}/{totalAmount}")
     public String updateBalanceByUsn(@PathVariable String usn, @PathVariable Double totalAmount) {
